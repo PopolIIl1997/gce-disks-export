@@ -84,7 +84,6 @@ if [ $selected_disk_num -eq 0 ]
         then
                 echo "Selected All disks"
         else
-                selected_disk_num=$((selected_disk_num+1))
                 GCE_DISKS=$(gcloud compute disks list  --format="csv[no-heading](name)" | awk '{print $1}' |  sed -n "${selected_disk_num}p")
                 if [ -z "$GCE_DISKS" ]
                         then
